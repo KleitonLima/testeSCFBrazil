@@ -1,11 +1,13 @@
 const data = require("./fakeData");
 
 const getUser = (req, res) => {
+  const name = req.query.name;
+  
   // #Forma mais simples
 
-    const user = data.find((e) => {
-      return e.name == req.query.name;
-    });
+  const user = data.find((e) => {
+    return e.name == name;
+  });
 
   // #Forma mais completa aplicando filtros na pesquisa
 
@@ -18,7 +20,7 @@ const getUser = (req, res) => {
   //   };
 
   //   // função para aceitar _ e - como espaço
-  //   const searchTerm = req.query.name.replace(/[_-]/g, " ");
+  //   const searchTerm = name.replace(/[_-]/g, " ");
 
   //   const user = data.find((e) => {
   //     return simplificar(e.name) == simplificar(searchTerm);
