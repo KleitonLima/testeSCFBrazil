@@ -1,17 +1,25 @@
-var data =  require("./fakeData");
+const data = require("./fakeData");
 
-module.exports = function(req, res){
-  
-    var name =  req.body.name;
-    var jov =  req.body.job;
-    
-    var newUser = {
-        name: name,
-        job: job,
-    }
+module.exports = function (req, res) {
+  //  função para gerar id aleatório com base na data e hora + um número aleatório
+  const generateId = () => {
+    const random = Math.random().toString(36).substring(2);
+    const dataHora = new Date().getTime();
 
-    data.push(newUser)
-    
-    res.send(newUser);
+    return `${random}-${dataHora}`;
+  };
 
+  const id = generateId();
+  const name = req.body.name;
+  const job = req.body.job;
+
+  const newUser = {
+    id: id,
+    name: name,
+    job: job,
+  };
+
+  data.push(newUser);
+
+  res.send(newUser);
 };
