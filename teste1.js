@@ -2,7 +2,7 @@ const data = require("./fakeData");
 
 const getUser = (req, res) => {
   const name = req.query.name;
-  
+
   // #Forma mais simples
 
   const user = data.find((e) => {
@@ -12,19 +12,19 @@ const getUser = (req, res) => {
   // #Forma mais completa aplicando filtros na pesquisa
 
   //   // função para retirar acentos e espaços e deixar tudo minúsculo
-  //   const simplificar = (element) => {
-  //     return element
-  //       .normalize("NFD")
-  //       .replace(/[\u0300-\u036f]/g, "")
-  //       .toLowerCase();
-  //   };
+  // const simplificar = (element) => {
+  //   return element
+  //     .normalize("NFD")
+  //     .replace(/[\u0300-\u036f]/g, "")
+  //     .toLowerCase();
+  // };
 
-  //   // função para aceitar _ e - como espaço
-  //   const searchTerm = name.replace(/[_-]/g, " ");
+  // // função para aceitar _ e - como espaço
+  // const checkEspaco = name.replace(/[_-]/g, " ");
 
-  //   const user = data.find((e) => {
-  //     return simplificar(e.name) == simplificar(searchTerm);
-  //   });
+  // const user = data.find((e) => {
+  //   return simplificar(e.name) == simplificar(checkEspaco);
+  // });
 
   user ? res.send(user) : res.send("Usuário não encontrado");
 };
