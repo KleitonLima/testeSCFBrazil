@@ -1,13 +1,10 @@
-var data =  require("./fakeData");
+const data = require("./fakeData");
 
-module.exports =  function(req, res) {
-  
-    var id =  req.query.id;
+module.exports = function (req, res) {
+  const id = req.query.id;
 
-    const reg = data.find(d => id == id);
-    reg.name = req.body.name;
-    reg.job = req.body.job;
-
-    res.send(reg);
-
+  const reg = data.find((e) => e.id == id);
+  reg
+    ? ((reg.name = req.body.name), (reg.job = req.body.job), res.send(reg))
+    : res.send("Usuário não encontrado!");
 };
