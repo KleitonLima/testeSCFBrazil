@@ -4,6 +4,7 @@ const fakeData = [
     name: "João Oliveira",
     job: "Desenvolvedor",
     readings: 0,
+    admin: false,
   },
 ];
 
