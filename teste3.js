@@ -1,26 +1,12 @@
 const data = require("./fakeData");
+const simplificar = require("./utils");
 
 module.exports = function (req, res) {
   const name = req.query.name;
 
-  //  #Forma simples
-
-  const deleteUser = data.findIndex((user) => user.name === name);
-
-  // #Forma mais completa aplicando filtros na pesquisa
-
-  //   // função para retirar acentos e espaços e deixar tudo minúsculo
-
-  //   const simplificar = (element) => {
-  //     return element
-  //       .normalize("NFD")
-  //       .replace(/[\u0300-\u036f]/g, "")
-  //       .toLowerCase();
-  //   };
-  
-  //   const deleteUser = data.findIndex(
-  //     (user) => simplificar(user.name) === simplificar(searchTerm)
-  //   );
+  const deleteUser = data.findIndex(
+    (user) => simplificar(user.name) === simplificar(name)
+  );
 
   deleteUser !== -1
     ? (data.splice(deleteUser, 1), res.send("success"))
