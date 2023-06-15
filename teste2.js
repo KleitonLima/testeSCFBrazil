@@ -12,14 +12,17 @@ module.exports = function (req, res) {
   const id = generateId();
   const name = req.body.name;
   const job = req.body.job;
+  let newUser = {};
 
-  const newUser = {
-    id: id,
-    name: name,
-    job: job,
-  };
-
-  data.push(newUser);
-
-  res.send(newUser);
+  // Verificação se existiu o name e job no body
+  name && job
+    ? ((newUser = {
+        id: id,
+        name: name,
+        job: job,
+      }),
+      (data.push(newUser), res.send(newUser)))
+    : res
+        .status(404)
+        .send("Não é possível cadastrada um usuário com dados faltando!");
 };
