@@ -17,7 +17,11 @@ const checkAdminMiddleware = (req, res, next) => {
     return e.id == id;
   });
 
-  if (user.admin === false) {
+  if (!user) {
+    return res.status(404).send("Usuário não encontrado!");
+  }
+
+  if (user.admin === false || user.admin === undefined) {
     return res.status(401).send("Usuário não autorizado!");
   }
 
