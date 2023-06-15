@@ -10,6 +10,7 @@ var teste5 = require("./teste5");
 const {
   checkEspacoMiddleware,
   simplificarMiddleware,
+  checkAdminMiddleware,
 } = require("./middlewares");
 
 app.set("view engine", "jade");
@@ -34,8 +35,8 @@ app.get("/", function (req, res) {
 app.get("/user", checkEspacoMiddleware, teste1.getUser);
 app.get("/users", teste1.getUsers);
 app.post("/users", teste2);
-app.delete("/users", checkEspacoMiddleware, teste3);
-app.put("/users", teste4);
+app.delete("/users", checkAdminMiddleware, checkEspacoMiddleware, teste3);
+app.put("/users", checkAdminMiddleware, teste4);
 app.get("/users/access", checkEspacoMiddleware, teste5);
 
 const port = 3000;
