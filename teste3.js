@@ -17,10 +17,7 @@ module.exports = function (req, res) {
   //       .replace(/[\u0300-\u036f]/g, "")
   //       .toLowerCase();
   //   };
-
-  //   // função para aceitar _ e - como espaço
-  //   const searchTerm = name.replace(/[_-]/g, " ");
-
+  
   //   const deleteUser = data.findIndex(
   //     (user) => simplificar(user.name) === simplificar(searchTerm)
   //   );

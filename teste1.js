@@ -18,10 +18,7 @@ const getUser = (req, res) => {
   //     .replace(/[\u0300-\u036f]/g, "")
   //     .toLowerCase();
   // };
-
-  // // função para aceitar _ e - como espaço
-  // const checkEspaco = name.replace(/[_-]/g, " ");
-
+  
   // const user = data.find((e) => {
   //   return simplificar(e.name) == simplificar(checkEspaco);
   // });
