@@ -9,7 +9,6 @@ var teste4 = require("./teste4");
 var teste5 = require("./teste5");
 const {
   checkEspacoMiddleware,
-  simplificarMiddleware,
   checkAdminMiddleware,
 } = require("./middlewares");
 
