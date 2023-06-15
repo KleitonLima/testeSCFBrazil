@@ -1,10 +1,11 @@
 const data = require("./fakeData");
+const simplificar = require("./utils");
 
 module.exports = function (req, res) {
   const name = req.query.name;
 
   const user = data.find((e) => {
-    return e.name === name;
+    return simplificar(e.name) === simplificar(name);
   });
 
   user
