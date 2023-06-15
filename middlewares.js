@@ -3,9 +3,13 @@ const data = require("./fakeData");
 const checkEspacoMiddleware = (req, res, next) => {
   const name = req.query.name;
 
-  const comEspaco = name.replace(/[_-]/g, " ");
+  let comEspaco;
 
-  req.query.name = comEspaco;
+  if (name) {
+    (comEspaco = name.replace(/[_-]/g, " ")), (req.query.name = comEspaco);
+  } else {
+    return res.status(404).send("Usuário não encontrado!");
+  }
 
   next();
 };
