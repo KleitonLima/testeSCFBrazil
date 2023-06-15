@@ -10,5 +10,5 @@ module.exports = function (req, res) {
 
   user
     ? (user.readings++, res.send(`Usuário ${name} lido ${user.readings} vezes`))
-    : res.send("Usuário inválido!");
+    : res.status(404).send("Usuário não encontrado!!");
 };

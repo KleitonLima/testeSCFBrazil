@@ -8,7 +8,7 @@ const getUser = (req, res) => {
     return simplificar(e.name) == simplificar(name);
   });
 
-  user ? res.send(user) : res.send("Usuário não encontrado");
+  user ? res.send(user) : res.status(404).send("Usuário não encontrado");
 };
 
 const getUsers = (req, res) => {

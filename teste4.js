@@ -6,5 +6,5 @@ module.exports = function (req, res) {
   const reg = data.find((e) => e.id == id);
   reg
     ? ((reg.name = req.body.name), (reg.job = req.body.job), res.send(reg))
-    : res.send("Usuário não encontrado!");
+    : res.status(404).send("Usuário não encontrado!");
 };

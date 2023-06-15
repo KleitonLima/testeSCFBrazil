@@ -10,5 +10,5 @@ module.exports = function (req, res) {
 
   deleteUser !== -1
     ? (data.splice(deleteUser, 1), res.send("success"))
-    : res.send("Usuário não encontrado");
+    : res.status(404).send("Usuário não encontrado");
 };
