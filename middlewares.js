@@ -1,5 +1,4 @@
 const data = require("./fakeData");
-const simplificar = require("./utils");
 
 const checkEspacoMiddleware = (req, res, next) => {
   const name = req.query.name;
@@ -19,7 +18,7 @@ const checkAdminMiddleware = (req, res, next) => {
   });
 
   if (user.admin === false) {
-    return res.send("Usuário não autorizado!");
+    return res.status(401).send("Usuário não autorizado!");
   }
 
   next();
